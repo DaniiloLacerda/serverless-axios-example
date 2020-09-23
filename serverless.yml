@@ -1,0 +1,25 @@
+service:
+  name: serverless-axios-example
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+plugins:
+  - serverless-webpack
+  - serverless-pseudo-parameters
+
+package:
+  excludeDevDependencies: true
+  individually: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  hello:
+    handler: src/functions/hello.get
+
+
